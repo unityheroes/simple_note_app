@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_note_app/views/home_page_view.dart';
+import 'package:simple_note_app/widgets/edit_note_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {EditNoteView.id: (context) => const EditNoteView()},
       theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
       home: const HomePageView(),
     );
