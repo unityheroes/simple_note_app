@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:simple_note_app/appsetting.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
+  const CustomButton({super.key, required this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 16),
       child: GestureDetector(
+        onTap: onTap,
         child: Container(
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
