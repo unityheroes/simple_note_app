@@ -3,7 +3,9 @@ import 'package:simple_note_app/appsetting.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.onTap});
-  final void Function()? onTap;
+
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,14 +15,17 @@ class CustomButton extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: kPrimaryColor.withAlpha(80),
-              gradient: LinearGradient(colors: [
+            borderRadius: BorderRadius.circular(16),
+            color: kPrimaryColor.withAlpha(80),
+            gradient: LinearGradient(
+              colors: [
                 Colors.white.withAlpha(16),
                 Colors.white.withAlpha(32),
                 Colors.white.withAlpha(64),
                 Colors.white.withAlpha(128),
-              ])),
+              ],
+            ),
+          ),
           height: 64,
           child: const Center(
             child: Text(
