@@ -12,6 +12,7 @@ class HomePageView extends StatelessWidget {
         backgroundColor: Colors.grey.withAlpha(32),
         onPressed: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (context) {
                 return const AddNoteBottomSheet();
