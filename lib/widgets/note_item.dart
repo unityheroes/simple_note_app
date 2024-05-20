@@ -21,7 +21,7 @@ class NoteItem extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         margin: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
-            color: Colors.yellow.withAlpha(16),
+            color: Color(noteModel.color).withAlpha(164),
             borderRadius: BorderRadius.circular(16)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -36,8 +36,7 @@ class NoteItem extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
                   noteModel.subTitle,
-                  style: TextStyle(
-                      fontSize: 16, color: Colors.white.withAlpha(128)),
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
               trailing: IconButton(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:simple_note_app/widgets/custom_app_bar.dart';
 
@@ -15,8 +16,10 @@ class NoteBodyView extends StatelessWidget {
         children: [
           CustomAppBar(
             title: "My Notes App",
-            icon: Icons.search,
-            onPressed: () {},
+            icon: Icons.power_settings_new_sharp,
+            onPressed: () {
+              SystemNavigator.pop();
+            },
           ),
           const Expanded(child: NoteListView()),
         ],
