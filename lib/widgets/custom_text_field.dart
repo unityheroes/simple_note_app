@@ -6,11 +6,13 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.hintText,
     this.maxlines = 1,
-    required this.onSaved,
+    this.onSaved,
+    this.onChanged,
   });
   final String hintText;
   final int maxlines;
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class CustomTextField extends StatelessWidget {
         padding: const EdgeInsets.only(top: 32, right: 16, left: 16),
         child: TextFormField(
           textInputAction: TextInputAction.done,
+          onChanged: onChanged,
           onSaved: onSaved,
           validator: (value) {
             if (value?.isEmpty ?? true) {

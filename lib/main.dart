@@ -7,7 +7,6 @@ import 'package:simple_note_app/cubits/cubit/notes_cubit.dart';
 import 'package:simple_note_app/models/note_model.dart';
 import 'package:simple_note_app/simple_bloc_observer.dart';
 import 'package:simple_note_app/views/home_page_view.dart';
-import 'package:simple_note_app/widgets/edit_note_view.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -26,9 +25,6 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: MaterialApp(
-        routes: {
-          EditNoteView.id: (context) => const EditNoteView(),
-        },
         theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
         home: const HomePageView(),
       ),
