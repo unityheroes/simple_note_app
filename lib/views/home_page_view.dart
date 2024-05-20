@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_note_app/cubits/cubit/notes_cubit.dart';
+
 import 'package:simple_note_app/widgets/add_note_bottom_sheet_view.dart';
 import 'package:simple_note_app/widgets/note_body_view.dart';
 
@@ -9,26 +8,23 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.grey.withAlpha(32),
-          onPressed: () {
-            showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (context) {
-                  return const AddNoteBottomSheet();
-                });
-          },
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey.withAlpha(32),
+        onPressed: () {
+          showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (context) {
+                return const AddNoteBottomSheet();
+              });
+        },
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
-        body: const NoteBodyView(),
       ),
+      body: const NoteBodyView(),
     );
   }
 }

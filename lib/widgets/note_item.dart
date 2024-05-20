@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_note_app/cubits/cubit/notes_cubit.dart';
+import 'package:simple_note_app/models/note_model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.noteModel});
+  final NoteModel noteModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +25,14 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               contentPadding: const EdgeInsets.all(0),
-              title: const Text(
-                'Note 1 ',
-                style: TextStyle(fontSize: 32),
+              title: Text(
+                noteModel.title,
+                style: const TextStyle(fontSize: 32),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  'Finish this task today before 5 PM',
+                  noteModel.subTitle,
                   style: TextStyle(
                       fontSize: 16, color: Colors.white.withAlpha(128)),
                 ),
@@ -39,14 +43,17 @@ class NoteItem extends StatelessWidget {
                   color: Colors.white.withAlpha(128),
                   size: 32,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                },
               ),
             ),
-            const Padding(
+            Padding(
                 padding: EdgeInsets.only(right: 32, top: 8),
                 child: Text(
-                  "5/15/2024",
-                  style: TextStyle(fontSize: 12),
+                  noteModel.date,
+                  style: const TextStyle(fontSize: 12),
                 )),
           ],
         ),
